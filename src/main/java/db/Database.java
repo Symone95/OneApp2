@@ -115,5 +115,16 @@ public class Database
 	 * @param
 	 * @return HashMap<String,String> data
 	 */
-	public Hash
+	public HashMap<String,String> readMap(String sql)
+	{
+		HashMap<String,String> prs = new HashMap<String,String>();
+		
+		try
+		{
+			Statement s = db.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+		}
+		
+		return prs;
+	}
 }
