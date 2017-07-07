@@ -114,7 +114,9 @@ public class Personaggio extends Entity{
 	}
 	
 	public String toString(){
-		return super.toString() + this.arma.toString();
+		return super.toString() + "\n" + 
+		(this.arma!=null?this.arma.toString():"Nessun'arma") + "\n" + 
+		(this.armatura!=null?this.armatura.toString():"Nessuna armatura");
 	}
 	
 }

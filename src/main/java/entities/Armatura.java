@@ -36,8 +36,8 @@ public class Armatura extends Entity{
 	}
 	
 	public String toString(){
-		return "Armatura: " + nome + 
-			   "\nDifesa: " + difesa;
+		return "Nome: " + get("nome") + 
+			   "\nDifesa: " + get("difesa");
 	}
 	
 }
