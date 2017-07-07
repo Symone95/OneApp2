@@ -9,7 +9,7 @@ public class Test
 	{
 		DAO d = new DAO(new Database());
 		
-		Personaggio p = d.load("eroe", 2);
+		Entity p = d.load("eroe", 2);
 		System.out.println(p.toJson());
 		
 	}

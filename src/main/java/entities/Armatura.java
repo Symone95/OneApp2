@@ -1,6 +1,6 @@
 package entities;
 
-public class Armatura extends Personaggio{
+public class Armatura extends Entity{
 	
 	private int id;
 	private String nome;

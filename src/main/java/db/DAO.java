@@ -41,14 +41,14 @@ public class DAO implements IDAO
 
 	//START SIMONE
 	@Override
-	public Personaggio load(String type, int id) {
-		Personaggio p = db.loadPersonaggi("eroe", id);
+	public Entity load(String type, int id) {
+		Entity p = db.loadPersonaggi("eroe", id);
 		return p;
 	}
 	//END SIMONE
 
 	@Override
-	public ArrayList<Personaggio> load(String type) {
+	public ArrayList<Entity> load(String type) {
 		// TODO Auto-generated method stub
 		return null;
 	}

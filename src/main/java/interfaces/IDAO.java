@@ -22,14 +22,14 @@ public interface IDAO
 	 * @param int id
 	 * @return Object
 	 */
-	public Personaggio load(String type, int id);
+	public Entity load(String type, int id);
 	
 	/**
 	 * load a list with all entities of one kind
 	 * @param String type (personaggi/eroi/mostri/scontri)
 	 * @return ArrayList<Entity> entities
 	 */
-	public ArrayList<Personaggio> load(String type);
+	public ArrayList<Entity> load(String type);
 	
 	/**
 	 * saves or updates an elemnt of the database

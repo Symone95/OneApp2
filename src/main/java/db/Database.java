@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import entities.Eroe;
-import entities.Personaggio;
+import entities.Entity;
 
 import java.io.File;
 import java.sql.*;
@@ -154,10 +154,10 @@ public class Database
 	}
 	
 	//START SIMONE
-	public Personaggio loadPersonaggi(String type, int id){
+	public Entity loadPersonaggi(String type, int id){
 		PreparedStatement ps = null ;
 //		System.out.println("Nel metodo loadTest, prima dell'Entity -> DBResource");
-		Personaggio ris = null;
+		Entity ris = null;
 //		System.out.println("Nel metodo loadTest, prima dell'if iniziale -> DBResource");
 			try
 			{

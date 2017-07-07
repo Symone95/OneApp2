@@ -49,7 +49,7 @@ public class SampleWebJspApplication extends SpringBootServletInitializer {
 	@Bean
 	@Scope("prototype")
 	public Mostro mostro(){
-		return new Mostro("Mostro", "Yeah", 100, 100, 100, "100");
+		return new Mostro("Mostro", "Yeah", 100, 100, 100, 100);
 	}
 	
 	@Override

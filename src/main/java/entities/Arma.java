@@ -1,6 +1,6 @@
 package entities;
 
-public class Arma extends Personaggio{
+public class Arma extends Entity{
 	
 	private int id;
 	private String nome;
