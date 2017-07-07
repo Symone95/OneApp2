@@ -35,7 +35,19 @@ public class DAO implements IDAO
 				{
 						email,
 						password
-				}
-		return (int)db.safeReadDouble(db.loadQuery("lvl"),data);
+				};
+		return 1;
+	}
+
+	@Override
+	public Personaggio load(String type, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Personaggio> load(String type) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

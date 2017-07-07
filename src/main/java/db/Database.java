@@ -123,6 +123,8 @@ public class Database
 		{
 			Statement s = db.createStatement();
 			ResultSet rs = s.executeQuery(sql);
+		}catch(SQLException e){
+			e.printStackTrace();
 		}
 		
 		return prs;
