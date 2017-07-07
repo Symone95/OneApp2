@@ -3,8 +3,11 @@ package db;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import entities.Eroe;
+import entities.Personaggio;
+
 import java.io.File;
-import java.sql.DriverManager;
 import java.sql.*;
 
 /**
@@ -20,12 +23,12 @@ public class Database
 	 * constructor
 	 * @param
 	 */
-	public Database(String path)
+	public Database()
 	{
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			db = DriverManager.getConnection(path);
+			db = DriverManager.getConnection("jdbc:mysql://localhost:3306/oneapp2?user=root&password=root");
 		}
 		catch(Exception e)
 		{
@@ -129,4 +132,58 @@ public class Database
 		
 		return prs;
 	}
+	
+	//Metodo leggi
+	public ResultSet queryResult(String sql) throws SQLException
+	{
+		PreparedStatement p = db.prepareStatement(sql);
+		ResultSet rtn = p.executeQuery();
+		
+		try
+		{
+			PreparedStatement s = db.prepareStatement(sql);
+			rtn = s.executeQuery(sql);
+		}
+		catch(SQLException e)
+		{
+			rtn = null;
+			e.printStackTrace();
+		}
+		
+		return rtn;
+	}
+	
+	public Personaggio loadPersonaggi(String type, int id){
+		PreparedStatement ps = null ;
+//		System.out.println("Nel metodo loadTest, prima dell'Entity -> DBResource");
+		Personaggio ris = null;
+//		System.out.println("Nel metodo loadTest, prima dell'if iniziale -> DBResource");
+			try
+			{
+									
+				switch (type) {
+				case "eroe":
+					//select resources.*, users.id as idUs, users.email, users.password, users.level, users.shortnote, users.vote from users, resources where users.level = 'client' and users.id = resources.id and users.id = ?;
+//					System.out.println("Nel metodo loadTest, prima del preparedStatement -> DBResource");
+					ps = db.prepareStatement("select * from eroe where id = ?");
+					ps.setInt(1, id);
+					ResultSet rs = ps.executeQuery();
+					if(rs.next())
+						{
+								System.out.println("Ho creato un client");
+								ris = new Eroe();
+								for(int i=0;i<rs.getMetaData().getColumnCount();i++)
+									ris.set(rs.getMetaData().getColumnName(i+1), rs.getString(i+1));
+						}
+					
+//					System.out.println("Sono nel try: Query del metodo loadUser: " + ps.toString());
+					break;
+				}
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+			
+			return ris;
+	}
+	
 }
