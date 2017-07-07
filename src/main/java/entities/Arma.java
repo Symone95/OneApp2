@@ -35,6 +35,9 @@ public class Arma extends Entity{
 		set("attacco", attacco+"");
 	}
 	
-	
+	public String toString(){
+		return "Arma: " + nome + 
+			   "\nAttacco: " + attacco;
+	}
 	
 }

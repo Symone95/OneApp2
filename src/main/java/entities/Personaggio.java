@@ -8,17 +8,29 @@ public class Personaggio extends Entity{
 	private int vita;
 	private int attacco;
 	private int stamina;
-	
 	String attacchi[] = new String[]{"Attacco semplice", "Attacco pesante", "Attacco speciale", "Mossa finale"};
-
+	private Arma arma;
+	private Armatura armatura;
+	
 	public Personaggio() {}
 	
-	public Personaggio(String nome, String cognome, int vita, int attacco, int stamina) {
+	public Personaggio(String nome, String cognome, int vita, int attacco, int stamina, Arma arma, Armatura armatura) {
 		set("nome", nome);
 		set("cognome", cognome);
-		set("vita", vita+"");
-		set("attacco", attacco+"");
+		if(this.armatura != null)
+			set("vita", (vita + this.armatura.getDifesa()) + "");
+		else
+			set("vita", vita+"");
 		set("stamina", stamina+"");
+		
+		if(this.arma != null)
+			set("attacco", (attacco + this.arma.getAttacco()) + "");
+		else
+			set("attacco", attacco + "");
+		set("stamina", stamina+"");
+		
+		this.arma = arma;
+		this.armatura = armatura;
 	}
 	
 	
@@ -99,6 +111,10 @@ public class Personaggio extends Entity{
 
 	public void setAttacchi(String[] attacchi) {
 		this.attacchi = attacchi;
+	}
+	
+	public String toString(){
+		return super.toString() + this.arma.toString();
 	}
 	
 }

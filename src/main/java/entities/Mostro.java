@@ -10,8 +10,8 @@ public class Mostro extends Personaggio{
 		super();
 	}
 	
-	public Mostro(String nome, String cognome, int vita, int attacco, int stamina, int minaccia) {
-		super(nome, cognome, vita, attacco, stamina);
+	public Mostro(String nome, String cognome, int vita, int attacco, int stamina, int minaccia, Arma arma, Armatura armatura) {
+		super(nome, cognome, vita, attacco, stamina, arma, armatura);
 		set("minaccia", minaccia+"");
 	}
 		
@@ -23,5 +23,4 @@ public class Mostro extends Personaggio{
 		set("minaccia", minaccia);
 	}
 	
-
 }

@@ -11,8 +11,8 @@ public class Eroe extends Personaggio{
 		super();
 	}
 	
-	public Eroe(String nome, String cognome, int vita, int attacco, int stamina, int efficacia) {
-		super(nome, cognome, vita, attacco, stamina);
+	public Eroe(String nome, String cognome, int vita, int attacco, int stamina, int efficacia, Arma arma, Armatura armatura) {
+		super(nome, cognome, vita, attacco, stamina, arma, armatura);
 		set("efficacia", efficacia+"");
 	}
 		

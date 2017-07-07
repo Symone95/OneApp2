@@ -10,9 +10,14 @@ public class Test {
 	
 	public static void main(String[] args) {
 	
-		DAO d = new DAO(new Database());
-		Entity p = d.load("eroe", 2);
-		System.out.println(p.toJson());
+//		DAO d = new DAO(new Database());
+//		Entity p = d.load("eroe", 2);
+//		System.out.println(p.toJson());
+		
+		Mostro m = new Mostro("mostro", "forte", 2000, 200, 900, 5, new Arma("Spada", 200), new Armatura("Casco", 90));
+		
+		System.out.println(m.toString());
+		
 		
 //		Eroe e = new Eroe("Goku", "Son", 100, 100, 100, 90);
 //		Eroe e2 = new Eroe("Gohan", "Son", 90, 100, 90, 90);
