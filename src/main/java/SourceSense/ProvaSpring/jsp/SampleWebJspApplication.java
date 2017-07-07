@@ -36,8 +36,8 @@ import entities.Mostro;
 public class SampleWebJspApplication extends SpringBootServletInitializer {
 	
 	@Bean
-	public void DAO(String path){
-		new DAO(new Database(path));
+	public DAO dao(){
+		return new DAO(new Database());
 	}
 	
 	@Bean

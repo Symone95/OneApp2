@@ -7,8 +7,8 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.0.2.RELEASE</version>
 	</parent>
-	<artifactId>ProvaSpring</artifactId>
-	<groupId>SourceSense</groupId>
+	<artifactId>ANTProjectsMio</artifactId>
+	<groupId>Antprj</groupId>
 	<packaging>war</packaging>
 	<name>Spring Boot Web JSP Sample</name>
 	<description>Spring Boot Web JSP Sample</description>
@@ -45,6 +45,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.40</version>
 		</dependency>
 	</dependencies>
 	<build>

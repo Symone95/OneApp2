@@ -5,8 +5,6 @@ import java.util.HashMap;
 import entities.*;
 import interfaces.*;
 
-//Funziona!!
-
 /**
  * Data Access Object wich implements the methods of IDAO, it handles of the persistance:
  * load, save and update elements of the database.
@@ -43,8 +41,8 @@ public class DAO implements IDAO
 
 	@Override
 	public Personaggio load(String type, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Personaggio p = db.loadPersonaggi("eroe", 1);
+		return p;
 	}
 
 	@Override

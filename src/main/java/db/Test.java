@@ -7,12 +7,18 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		DAO d = new DAO(new Database("jdbc:mysql//localhost3306/oneapp2?user=root&password=Naga01"));
+		DAO d = new DAO(new Database());
 		
-		ArrayList<Personaggio> p = (ArrayList<Personaggio>)d.load("personaggi");
-		System.out.println(p.size());
+//		ArrayList<Personaggio> p = (ArrayList<Personaggio>)d.load("personaggi");
+//		System.out.println(p.size());
+//		
+//		for(Personaggio pg: p)
+//			System.out.println(pg.toJson());
 		
-		for(Personaggio pg: p)
-			System.out.println(pg.toJson());
+		Personaggio p = d.load("eroe", 1);
+		
+		
+		System.out.println(p.toJson());
+		
 	}
 }

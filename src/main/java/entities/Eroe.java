@@ -15,6 +15,7 @@ public class Eroe extends Personaggio{
 	
 	String attacchi[] = new String[]{"Attacco semplice", "Attacco pesante", "Attacco speciale", "Mossa finale"};
 	
+	public Eroe() {	}
 	
 	public Eroe(String nome, String cognome, int vita, int attacco, int stamina, int efficacia) {
 		set("nome", nome);
