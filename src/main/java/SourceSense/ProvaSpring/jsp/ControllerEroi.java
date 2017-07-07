@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import db.DAO;
 
@@ -15,6 +16,7 @@ public class ControllerEroi {
 	@Autowired
 	DAO dao;
 	
+
 	@RequestMapping("/")
 	public String welcome() {
 		return "home";
@@ -25,6 +27,7 @@ public class ControllerEroi {
 		return "home";
 	}
 	
+
 	
 	
 }
