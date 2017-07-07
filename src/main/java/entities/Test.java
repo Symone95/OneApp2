@@ -14,7 +14,7 @@ public class Test {
 //		Entity p = d.load("eroe", 2);
 //		System.out.println(p.toJson());
 		
-		Mostro m = new Mostro("mostro", "forte", 2000, 200, 900, 5, new Arma("Spada", 200), new Armatura("Casco", 90));
+		Mostro m = new Mostro("mostro", 2000, 200, 900, 5, new Arma("Spada", 200), new Armatura("Casco", 90));
 		
 		System.out.println(m.toString());
 		

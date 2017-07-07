@@ -45,13 +45,13 @@ public class SampleWebJspApplication extends SpringBootServletInitializer {
 	@Bean
 	@Scope("prototype")
 	public Eroe eroe(){
-		return new Eroe("Eroe", "Yeah", 100, 100, 100, 100, new Arma("Spada", 50), new Armatura("scudo", 90));
+		return new Eroe("Eroe", 100, 100, 100, 100, new Arma("Spada", 50), new Armatura("scudo", 90));
 	}
 
 	@Bean
 	@Scope("prototype")
 	public Mostro mostro(){
-		return new Mostro("Mostro", "Yeah", 100, 100, 100, 100, new Arma("Lancia", 50), new Armatura("Elmo", 90));
+		return new Mostro("Mostro", 100, 100, 100, 100, new Arma("Lancia", 50), new Armatura("Elmo", 90));
 	}
 	
 	@Override

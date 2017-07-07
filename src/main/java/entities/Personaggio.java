@@ -3,7 +3,6 @@ package entities;
 public class Personaggio extends Entity{
 	
 	private String nome;
-	private String cognome;
 //	private String foto;
 	private int vita;
 	private int attacco;
@@ -14,9 +13,8 @@ public class Personaggio extends Entity{
 	
 	public Personaggio() {}
 	
-	public Personaggio(String nome, String cognome, int vita, int attacco, int stamina, Arma arma, Armatura armatura) {
+	public Personaggio(String nome, int vita, int attacco, int stamina, Arma arma, Armatura armatura) {
 		set("nome", nome);
-		set("cognome", cognome);
 		if(this.armatura != null)
 			set("vita", (vita + this.armatura.getDifesa()) + "");
 		else
