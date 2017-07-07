@@ -6,6 +6,8 @@ public class Arma extends Entity{
 	private String nome;
 	private int attacco;
 	
+	public Arma() {}
+	
 	public Arma(String nome, int attacco) {
 		set("nome", nome);
 		set("attacco", attacco+"");

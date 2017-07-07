@@ -1,5 +1,6 @@
 package db;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import entities.*;
@@ -40,9 +41,24 @@ public class DAO implements IDAO
 	}
 
 	//START SIMONE
-	@Override
-	public Entity load(String type, int id) {
-		Entity p = db.loadPersonaggi("eroe", id);
+	public Personaggio loadPersonaggio(String type, int id) {
+		
+		Personaggio p = null;
+		ResultSet rs = null;
+		switch (type) {
+		case "eroe":
+			p = (Eroe) db.load("eroe", id);
+			break;
+
+		case "mostro":
+			p = (Mostro) db.load("mostro", id);
+			break;
+			
+		default:
+			break;
+		}
+		
+		
 		return p;
 	}
 	//END SIMONE
@@ -51,5 +67,10 @@ public class DAO implements IDAO
 	public ArrayList<Entity> load(String type) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Entity load(String type, int id) {
+		return db.load(type, id);
 	}
 }

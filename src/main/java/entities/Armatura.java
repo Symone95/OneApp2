@@ -6,6 +6,8 @@ public class Armatura extends Entity{
 	private String nome;
 	private int difesa;
 	
+	public Armatura() {}
+	
 	public Armatura(String nome, int difesa) {
 		set("nome", nome);
 		set("difesa", difesa+"");

@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import entities.Eroe;
+import entities.Mostro;
+import entities.Arma;
+import entities.Armatura;
 import entities.Entity;
 
 import java.io.File;
@@ -154,38 +157,100 @@ public class Database
 	}
 	
 	//START SIMONE
-	public Entity loadPersonaggi(String type, int id){
-		PreparedStatement ps = null ;
+	public Entity load(String type, int id){
+		PreparedStatement ps = null;
 //		System.out.println("Nel metodo loadTest, prima dell'Entity -> DBResource");
 		Entity ris = null;
 //		System.out.println("Nel metodo loadTest, prima dell'if iniziale -> DBResource");
 			try
-			{
-									
+			{	
+				
 				switch (type) {
 				case "eroe":
 					//select resources.*, users.id as idUs, users.email, users.password, users.level, users.shortnote, users.vote from users, resources where users.level = 'client' and users.id = resources.id and users.id = ?;
-					System.out.println("Nel metodo loadTest, prima del preparedStatement -> DBResource");
-					ps = db.prepareStatement("select * from eroe where id = ?");
+					ps = db.prepareStatement("select * from eroi where id = ?");
 					ps.setInt(1, id);
 					ResultSet rs = ps.executeQuery();
 					if(rs.next())
 						{
-								System.out.println("Ho creato un client");
+//								System.out.println("Ho creato un eroe");
 								ris = new Eroe();
 								for(int i=0;i<rs.getMetaData().getColumnCount();i++)
 									ris.set(rs.getMetaData().getColumnName(i+1), rs.getString(i+1));
 						}
 					
-					System.out.println("Sono nel try: Query del metodo loadUser: " + ps.toString());
+//					System.out.println("Sono nel try dell'eroe: Query del metodo load: " + ps.toString());
 				break;
+				case "mostro":
+//					System.out.println("Nel metodo load, prima del preparedStatement -> DBResource");
+					ps = db.prepareStatement("select * from mostri where id = ?");
+					ps.setInt(1, id);
+					ResultSet rs2 = ps.executeQuery();
+					if(rs2.next())
+						{
+//								System.out.println("Ho creato un mostro");
+								ris = new Mostro();
+								for(int i=0;i<rs2.getMetaData().getColumnCount();i++)
+									ris.set(rs2.getMetaData().getColumnName(i+1), rs2.getString(i+1));
+						}
+					
+					System.out.println("Sono nel try del mostro: Query del metodo load: " + ps.toString());
+				break;
+				case "arma":
+					System.out.println("Nel metodo load, prima del preparedStatement -> DBResource");
+					ps = db.prepareStatement("select * from armi where id = ?");
+					ps.setInt(1, id);
+					ResultSet rs3 = ps.executeQuery();
+					if(rs3.next())
+						{
+//								System.out.println("Ho creato un'arma");
+								ris = new Arma();
+								for(int i=0;i<rs3.getMetaData().getColumnCount();i++)
+									ris.set(rs3.getMetaData().getColumnName(i+1), rs3.getString(i+1));
+						}
+					
+//					System.out.println("Sono nel try dell'arma: Query del metodo load: " + ps.toString());
+				break;
+				case "armatura":
+					ps = db.prepareStatement("select * from armature where id = ?");
+					ps.setInt(1, id);
+					ResultSet rs4 = ps.executeQuery();
+					if(rs4.next())
+						{
+//								System.out.println("Ho creato un'armatura");
+								ris = new Armatura();
+								for(int i=0;i<rs4.getMetaData().getColumnCount();i++)
+									ris.set(rs4.getMetaData().getColumnName(i+1), rs4.getString(i+1));
+						}
+					
+//					System.out.println("Sono nel try dell'arma: Query del metodo load: " + ps.toString());
+				break;
+				default:
+					break;
 				}
+			
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
 			
+			System.out.println("Classe dell'oggetto creato: " + ris.getClass().getSimpleName());
+			
 			return ris;
 	}
+	
+	public ResultSet leggi(String sql, int id){
+		PreparedStatement ps = null ;
+		ResultSet rs = null;
+		try{
+			ps = db.prepareStatement(sql);
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
 	//END SIMONE
 	
 }
