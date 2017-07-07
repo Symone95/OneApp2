@@ -20,14 +20,38 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import db.DAO;
+import db.Database;
+import entities.Eroe;
+import entities.Mostro;
 
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
 public class SampleWebJspApplication extends SpringBootServletInitializer {
+	
+	@Bean
+	public void DAO(String path){
+		new DAO(new Database(path));
+	}
+	
+	@Bean
+	@Scope("prototype")
+	public Eroe eroe(){
+		return new Eroe("Eroe", "Yeah", 100, 100, 100, 100);
+	}
 
+	@Bean
+	@Scope("prototype")
+	public Mostro mostro(){
+		return new Mostro("Eroe", "Yeah", 100, 100, 100, "100");
+	}
+	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(SampleWebJspApplication.class);
