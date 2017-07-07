@@ -177,7 +177,7 @@ public class Database
 						}
 					
 					System.out.println("Sono nel try: Query del metodo loadUser: " + ps.toString());
-					break;
+				break;
 				}
 			}catch(SQLException e){
 				e.printStackTrace();

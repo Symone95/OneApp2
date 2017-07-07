@@ -17,7 +17,7 @@ public class ControllerEroi {
 	@RequestMapping("/")
 	public String home(Map<String, Object> model){
 		System.out.println("Cerco di restituire la home");
-		return "home";
+		return "welcome";
 	}
 	
 	@RequestMapping("/home")
