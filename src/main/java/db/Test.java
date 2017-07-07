@@ -9,12 +9,6 @@ public class Test
 	{
 		DAO d = new DAO(new Database());
 		
-//		ArrayList<Personaggio> p = (ArrayList<Personaggio>)d.load("personaggi");
-//		System.out.println(p.size());
-//		
-//		for(Personaggio pg: p)
-//			System.out.println(pg.toJson());
-		
 		Personaggio p = d.load("eroe", 2);
 		System.out.println(p.toJson());
 		
