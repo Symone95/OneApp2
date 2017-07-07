@@ -39,11 +39,13 @@ public class DAO implements IDAO
 		return 1;
 	}
 
+	//START SIMONE
 	@Override
 	public Personaggio load(String type, int id) {
 		Personaggio p = db.loadPersonaggi("eroe", id);
 		return p;
 	}
+	//END SIMONE
 
 	@Override
 	public ArrayList<Personaggio> load(String type) {

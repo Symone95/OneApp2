@@ -153,6 +153,7 @@ public class Database
 		return rtn;
 	}
 	
+	//START SIMONE
 	public Personaggio loadPersonaggi(String type, int id){
 		PreparedStatement ps = null ;
 //		System.out.println("Nel metodo loadTest, prima dell'Entity -> DBResource");
@@ -185,5 +186,6 @@ public class Database
 			
 			return ris;
 	}
+	//END SIMONE
 	
 }
