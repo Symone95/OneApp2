@@ -23,7 +23,7 @@
 			h2
 			{
 			    color: white;
-			}
+			} 
 			
 			h3
 			{
