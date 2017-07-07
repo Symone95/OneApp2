@@ -11,9 +11,7 @@ public class Test {
 	public static void main(String[] args) {
 	
 		DAO d = new DAO(new Database());
-Personaggio p = d.load("eroe", 2);
-		
-		
+		Personaggio p = d.load("eroe", 2);
 		System.out.println(p.toJson());
 		
 //		Eroe e = new Eroe("Goku", "Son", 100, 100, 100, 90);

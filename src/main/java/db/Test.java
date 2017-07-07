@@ -16,8 +16,6 @@ public class Test
 //			System.out.println(pg.toJson());
 		
 		Personaggio p = d.load("eroe", 2);
-		
-		
 		System.out.println(p.toJson());
 		
 	}

@@ -41,7 +41,7 @@ public class DAO implements IDAO
 
 	@Override
 	public Personaggio load(String type, int id) {
-		Personaggio p = db.loadPersonaggi("eroe", 1);
+		Personaggio p = db.loadPersonaggi("eroe", id);
 		return p;
 	}
 
