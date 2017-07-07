@@ -1,13 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script>
-        var app = angular.module('OneApp',[]);
-        app.controller('homeController', $scope, $http){
-            
-        }
+	        var app = angular.module('OneApp',[]);
+	        app.controller('homeController', $scope, $http){
+	            
+	        }
         </script>
     </head>
     <body ng-app = "OneApp" ng-controller = "homeController">

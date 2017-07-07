@@ -15,7 +15,7 @@ public class Test
 //		for(Personaggio pg: p)
 //			System.out.println(pg.toJson());
 		
-		Personaggio p = d.load("eroe", 1);
+		Personaggio p = d.load("eroe", 2);
 		
 		
 		System.out.println(p.toJson());

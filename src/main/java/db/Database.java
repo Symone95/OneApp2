@@ -164,7 +164,7 @@ public class Database
 				switch (type) {
 				case "eroe":
 					//select resources.*, users.id as idUs, users.email, users.password, users.level, users.shortnote, users.vote from users, resources where users.level = 'client' and users.id = resources.id and users.id = ?;
-//					System.out.println("Nel metodo loadTest, prima del preparedStatement -> DBResource");
+					System.out.println("Nel metodo loadTest, prima del preparedStatement -> DBResource");
 					ps = db.prepareStatement("select * from eroe where id = ?");
 					ps.setInt(1, id);
 					ResultSet rs = ps.executeQuery();
@@ -176,7 +176,7 @@ public class Database
 									ris.set(rs.getMetaData().getColumnName(i+1), rs.getString(i+1));
 						}
 					
-//					System.out.println("Sono nel try: Query del metodo loadUser: " + ps.toString());
+					System.out.println("Sono nel try: Query del metodo loadUser: " + ps.toString());
 					break;
 				}
 			}catch(SQLException e){
