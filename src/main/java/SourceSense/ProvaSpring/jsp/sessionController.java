@@ -19,7 +19,6 @@ public class sessionController {
 	(
 			Map<String,Object> model
 	)
-	
 	{
 		System.out.println("Sono nel metodo formNuovoUtente");
 //		model.put("utente", utente);

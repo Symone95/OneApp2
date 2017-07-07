@@ -76,22 +76,33 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script>
 	        var app = angular.module('OneApp',[]);
-	        app.controller('homeController', $scope, $http){
+	        app.controller('homeController', function($scope, $http){
 	            
+	        	$scope.mostra = "home";
+	        	
 	        	$scope.listaEroi = function()
                 {
                     $scope.mostra = 'eroi';
 
                     $http.get("/listaEroi").then(function(response){
-                    $scope.eroe = response.data;
-                    console.log($scope.eroe);
-                });
+	                    $scope.eroe = response.data;
+	                    console.log($scope.eroe);
+                	});
                 }
 	        	
-	        }
+	        	$scope.formRegistrazione = function()
+                {
+                    $scope.mostra = 'formRegistrazione';
+
+                    $http.get("/formNuovoUtente").then(function(response){
+                    	console.log("sono nel form registrazione");
+                	});
+                }
+	        	
+	        });
         </script>
     </head>
-    <body ng-app = "OneApp" ng-controller = "homeController" ng-init="mostra = 'home'" >
+    <body ng-app="OneApp" ng-controller="homeController" ng-init="mostra = 'home'" >
         
         <div ng-show="mostra == 'home'">
         	<h1>
@@ -99,13 +110,16 @@
                 <div>Benvenuto su OnePunchAPP!</div>
             </center>
         </h1>
-
+Mostra: {{mostra}}
         <center>
             <div>
                 <section>
-                    <a class = "btn" ng-click="listaEroi();" href = "./listaEroi.jsp"><btn>Lista Eroi</btn></a>
-                    <a class = "btn" href = "./listaMostri.jsp"><btn>Lista Mostri</btn></a>
-                    <a class = "btn" href = "./login.jsp"><btn>Login</btn></a>
+    				<!-- 
+    				<a class = "btn" ng-click="listaEroi();" ><btn>Lista Eroi</btn></a>
+                    <a class = "btn" ng-click="listaMostri();" ><btn>Lista Mostri</btn></a>
+    				 -->
+                    <a class = "btn" ng-click="Login();" ><btn>Login</btn></a>
+                    <a class = "btn" ng-click="formRegistrazione();" ><btn>Registrati</btn></a>
                 </section>
             </div>
         </center>
@@ -126,7 +140,7 @@
         </div>
         
         <div ng-show="mostra == 'eroi'">
-        <jsp:include page="listaEroi.jsp"></jsp:include>
+        	<jsp:include page="listaEroi.jsp"></jsp:include>
         </div>
         
     </body>
