@@ -78,11 +78,23 @@
 	        var app = angular.module('OneApp',[]);
 	        app.controller('homeController', $scope, $http){
 	            
+	        	$scope.listaEroi = function()
+                {
+                    $scope.mostra = 'eroi';
+
+                    $http.get("/listaEroi").then(function(response){
+                    $scope.eroe = response.data;
+                    console.log($scope.eroe);
+                });
+                }
+	        	
 	        }
         </script>
     </head>
-    <body ng-app = "OneApp" ng-controller = "homeController">
-        <h1>
+    <body ng-app = "OneApp" ng-controller = "homeController" ng-init="mostra = 'home'" >
+        
+        <div ng-show="mostra == 'home'">
+        	<h1>
             <center>
                 <div>Benvenuto su OnePunchAPP!</div>
             </center>
@@ -91,7 +103,7 @@
         <center>
             <div>
                 <section>
-                    <a class = "btn" href = "./listaEroi.jsp"><btn>Lista Eroi</btn></a>
+                    <a class = "btn" ng-click="listaEroi();" href = "./listaEroi.jsp"><btn>Lista Eroi</btn></a>
                     <a class = "btn" href = "./listaMostri.jsp"><btn>Lista Mostri</btn></a>
                     <a class = "btn" href = "./login.jsp"><btn>Login</btn></a>
                 </section>
@@ -111,5 +123,11 @@
         </div>
 
         <center><div>SCRIVERE LE REGOLE DEL GIOCO</div></center>
+        </div>
+        
+        <div ng-show="mostra == 'eroi'">
+        <jsp:include page="listaEroi.jsp"></jsp:include>
+        </div>
+        
     </body>
 </html>

@@ -11,8 +11,8 @@ import interfaces.IUtente;
 @Controller
 public class sessionController {
 
-	@Autowired
-	public IUtente utente;
+//	@Autowired
+//	public IUtente utente;
 	
 	@RequestMapping(value = "/formNuovoUtente")
 	public String formNuovoUtente
@@ -22,7 +22,7 @@ public class sessionController {
 	
 	{
 		System.out.println("Sono nel metodo formNuovoUtente");
-		model.put("utente", utente);
+//		model.put("utente", utente);
 		System.out.println("Oggetto:" + model.get("utente"));
 		return "formNuovoUtente";
 	}

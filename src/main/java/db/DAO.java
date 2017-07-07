@@ -65,8 +65,7 @@ public class DAO implements IDAO
 
 	@Override
 	public ArrayList<Entity> load(String type) {
-		// TODO Auto-generated method stub
-		return null;
+		return db.load(type);
 	}
 
 	@Override

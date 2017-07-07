@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import entities.Eroe;
 import entities.Mostro;
+import entities.Personaggio;
 import entities.Arma;
 import entities.Armatura;
 import entities.Entity;
@@ -224,6 +225,52 @@ public class Database
 						}
 					
 //					System.out.println("Sono nel try dell'arma: Query del metodo load: " + ps.toString());
+				break;
+				default:
+					break;
+				}
+			
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+			
+			System.out.println("Classe dell'oggetto creato: " + ris.getClass().getSimpleName());
+			
+			return ris;
+	}
+	
+	public ArrayList<Entity> load(String type){
+		PreparedStatement ps = null;
+//		System.out.println("Nel metodo loadTest, prima dell'Entity -> DBResource");
+		ArrayList<Entity> ris = new ArrayList<Entity>();
+//		System.out.println("Nel metodo loadTest, prima dell'if iniziale -> DBResource");
+			try
+			{	
+				
+				switch (type) {
+				case "eroe":
+					//select resources.*, users.id as idUs, users.email, users.password, users.level, users.shortnote, users.vote from users, resources where users.level = 'client' and users.id = resources.id and users.id = ?;
+					ps = db.prepareStatement("select * from eroi");
+					ResultSet rs = ps.executeQuery();
+					if(rs.next())
+						{
+								for(int i=0;i<rs.getMetaData().getColumnCount();i++)
+									ris.add((Personaggio) this.load(type, rs.getInt("id")));
+						}
+					
+//					System.out.println("Sono nel try dell'eroe: Query del metodo load: " + ps.toString());
+				break;
+				case "mostro":
+//					System.out.println("Nel metodo load, prima del preparedStatement -> DBResource");
+					ps = db.prepareStatement("select * from mostri");
+					ResultSet rs2 = ps.executeQuery();
+					if(rs2.next())
+						{
+								for(int i=0;i<rs2.getMetaData().getColumnCount();i++)
+									ris.add((Personaggio) this.load(type, rs2.getInt("id")));
+						}
+					
+					System.out.println("Sono nel try del mostro: Query del metodo load: " + ps.toString());
 				break;
 				default:
 					break;
