@@ -70,6 +70,7 @@
 
 		<header>
 			<h1>OnePunchApp</h1>
+			<div><a href="./home.jsp">Home</a></div>
 		</header>
 		<div class="wrapper" >
 			<div class="form-signin">

@@ -11,9 +11,14 @@ h1
     font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
 }
 
+h2
+{
+    color: white;
+}
+
 h3
 {
-  color: white;
+    color: white;
     font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";  
 }
 
@@ -52,4 +57,9 @@ span
 .eroi{
    font-size: 20px;
    font-family: Impact, Charcoal, sans-serif;
+}
+
+.form-group
+{
+    color: white;
 }

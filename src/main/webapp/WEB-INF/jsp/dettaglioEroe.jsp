@@ -4,18 +4,18 @@
     	<link href="style.css" rel="stylesheet" type="text/css">
         <script>
             var app = angular.module('OneApp', []);
-            app.controller('controllerListaEroi', function($scope, $http)
+            app.controller('controllerDettaglioEroe', function($scope, $http)
             {
-                $scope.eroi = [{nome:'Saitama', cognome:'Oppai',foto:'', vita:'100', attacco:'10', stamina:'10', efficacia:'10'}]
+                $scope.eroe = [{nome:'Saitama', cognome:'Oppai',foto:'', vita:'100', attacco:'10', stamina:'10', efficacia:'10'}]
 
 
-               $scope.listaEroi = function()
+               $scope.dettaglioEroe = function()
                 {
-                    $scope.mostra = 'eroi';
+                    $scope.mostra = 'eroe';
 
-                    $http.post("/listaeroi").then(function(response){
-                    $scope.mostri = response.data;
-                    console.log($scope.eroi);
+                    $http.post("/dettaglioEroe").then(function(response){
+                    $scope.eroe = response.data;
+                    console.log($scope.eroe);
                 });
                 
             }
@@ -23,7 +23,7 @@
         </script>
     </head>
 
-    <body ng-app = "OneApp" ng-controller = "controllerListaEroi">
+    <body ng-app = "OneApp" ng-controller = "controllerDettaglioEroe">
         <span><img src="https://i.ytimg.com/vi/D-PnRiH7fPg/maxresdefault.jpg" width="300px" height="200px"/></span>
         <span class = "eroi" ng-repeat = "x in eroi">
             <b>Nome:</b> {{x.nome}}<br>
